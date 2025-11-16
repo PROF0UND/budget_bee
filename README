@@ -1,0 +1,78 @@
+# BudgetBee — Expense & Budget Tracker
+
+BudgetBee is a Python-based budgeting system that allows users to record monthly expenses, track real-time transactions, and compute a Budget Bee Score (10–100) based on spending habits. Includes a built-in fake transaction generator for testing.
+
+## Features
+
+### 1. User Management
+
+- Username, password, optional email
+    
+- Credential validation
+    
+- Login / logout methods
+    
+
+### 2. Monthly Expense Survey
+
+- Categories: Housing, Food, Transportation, Health, Personal & Family
+    
+- CLI survey input with numeric validation
+    
+- Automatic total per category and overall spending
+    
+
+### 3. Budget Bee Score (10–100)
+
+- Score decreases as spending approaches or exceeds budget
+    
+- Based on ratio of spending to monthly budget
+    
+- Automatically updates when new transactions are added
+    
+
+### 4. Extra Transactions
+
+- Add expenses programmatically or via CLI
+    
+- Score recalculates after each added transaction
+    
+
+### 5. Fake Transaction Generator
+
+- Randomized sample transactions
+    
+- Includes amount, merchant, category, and date
+    
+
+## Project Structure
+
+`BudgetBee/ │ ├── budgetbee.py        # Survey, Budget, Bee Score logic ├── transaction_gen.py  # Fake transaction generator ├── fake_bankdb.py      # Placeholder DB (optional) ├── README.md └── requirements.txt`
+
+## Usage
+
+Clone the repository:
+
+`git clone https://github.com/yourusername/BudgetBee.git cd BudgetBee`
+
+Run:
+
+`python budgetbee.py`
+
+### Example
+
+`s = Survey("samira", "abc123", "samira@example.com", monthly_budget=3000) s.fill_expense("Food", "Groceries and household supplies", 250)  score, total = s.add_transaction(120, "Dinner") print(score, total)`
+
+### Generate Fake Transactions
+
+`from transaction_gen import get_fake_transactions print(get_fake_transactions(10))`
+
+## Future Improvements (Optional)
+
+- Database integration (SQLite/Firebase)
+    
+- Web or mobile UI
+    
+- Analytics dashboards and charts
+    
+- Real banking API support
